@@ -4,6 +4,7 @@ use docker-compose and scripting to put my projects into production
 ## environment variables
  - DUMPS_PATH : path to database dumps, used to install the project into production (at first time)
  - DELPH_PATH : path to this repository
+ - DEV_PATH : path to source code
  
 ## scripts
  - install-dragoon : initialize database (for container named sql_dragoon)
