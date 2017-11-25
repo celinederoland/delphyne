@@ -1,0 +1,74 @@
+version: '2'
+
+services:
+  ladon:
+    build: python-with-redis
+    networks:
+      - front
+      - back
+
+  pyrausta:
+    build: python-with-redis
+    networks:
+      - front
+      - back
+
+  blog:
+    build: php7
+    networks:
+      - front
+      - back
+
+  cychreides:
+    build: php7
+    networks:
+      - front
+      - back
+
+  demeter:
+    build: php7
+    networks:
+      - front
+      - back
+
+  redis_counter:
+    image: "redis:alpine"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_counter_datas:/data
+    networks:
+      - back
+
+  sql_dragoon:
+    image: mysql:5.7
+    volumes:
+      - sql_dragoon_datas:/var/lib/mysql
+    networks:
+      - back
+
+  haproxy:
+    image: haproxy:1.7.9-alpine
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "80:80"
+    networks:
+      - front
+    depends_on:
+      - ladon
+      - pyrausta
+      - blog
+      - demeter
+      - cychreides
+
+volumes:
+  sql_dragoon_datas:
+    driver: local
+  redis_counter_datas:
+    driver: local
+
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge

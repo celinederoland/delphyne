@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  ladon:
+    volumes:
+      - /path/to/ladon:/code
+
+  pyrausta:
+    volumes:
+      - /path/to/ladon:/code
+
+  blog:
+    volumes:
+      - /path/to/blog/config/virtualhost.conf:/etc/apache2/sites-available/000-default.conf
+      - /path/to/blog:/var/www/html
+
+  cychreides:
+    volumes:
+      - /path/to/cychreides:/var/www/html/public
+
+  demeter:
+    volumes:
+      - /path/to/demeter:/var/www/html/public
+
+  redis_counter:
+    ports:
+      - 6379:6379
+
+  sql_dragoon:
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dragoon
+
+volumes:
+  sql_dragoon_datas:
+    driver: local
+  redis_counter_datas:
+    driver: local
+
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge
