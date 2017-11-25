@@ -1,3 +1,5 @@
 .idea/
 delphyne/docker-compose.override.yml
+delphyne/docker-compose.override.prod.yml
 synchro/*
+update-remote-params
