@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-cd ../delphyne
+cd $DELPH_PATH/delphyne
 git pull
+docker-compose down
 docker-compose up --build -d
