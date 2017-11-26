@@ -4,3 +4,5 @@ delphyne/docker-compose.override.prod.yml
 synchro/
 update-remote-params
 config/
+config.prod/
+config.dev/

@@ -3,24 +3,23 @@ version: '2'
 services:
   ladon:
     volumes:
-      - /path/to/ladon:/code
+      - /working/path/code/ladon:/code
 
   pyrausta:
     volumes:
-      - /path/to/ladon:/code
+      - /working/path/code/ladon:/code
 
   blog:
     volumes:
-      - /path/to/blog/config/virtualhost.conf:/etc/apache2/sites-available/000-default.conf
-      - /path/to/blog:/var/www/html
+      - /working/path/code/blog:/var/www/html
 
   cychreides:
     volumes:
-      - /path/to/cychreides:/var/www/html/public
+      - /working/path/code/cychreides:/var/www/html/public
 
   demeter:
     volumes:
-      - /path/to/demeter:/var/www/html/public
+      - /working/path/code/demeter:/var/www/html/public
 
   redis_counter:
     ports:

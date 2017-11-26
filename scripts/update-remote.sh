@@ -5,8 +5,8 @@ echo "copy ../delphyne/docker-compose.override.prod.yml to $1:$2/delphyne/docker
 scp ../delphyne/docker-compose.override.prod.yml \
 $1:$2/delphyne/docker-compose.override.yml
 
-echo "copy ../config to $1:$2/"
-scp -r ../config/* \
+echo "copy ../config.prod to $1:$2/config"
+scp -r ../config.prod/* \
 $1:$2/config
 
-ssh $1 "tree $2/config"
+ssh $1 "tree $2/config.prod"

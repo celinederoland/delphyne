@@ -15,18 +15,27 @@ services:
 
   blog:
     build: php7
+    volumes:
+      - ../config/php/reporting.ini:/usr/local/etc/php/conf.d/reporting.ini
+      - ../config/blog/virtualhost.conf:/etc/apache2/sites-available/000-default.conf
     networks:
       - front
       - back
 
   cychreides:
     build: php7
+    volumes:
+      - ../config/php/reporting.ini:/usr/local/etc/php/conf.d/reporting.ini
+      - ../config/cychreides/config.json:/var/www/html/public/config.json
     networks:
       - front
       - back
 
   demeter:
     build: php7
+    volumes:
+      - ../config/php/reporting.ini:/usr/local/etc/php/conf.d/reporting.ini
+      - ../config/demeter/config.json:/var/www/html/public/config.json
     networks:
       - front
       - back
