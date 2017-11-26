@@ -34,9 +34,15 @@ The admin has ssh access to production server (there is only one machine).
  
  
  - set your system environment variables
- - DUMPS_PATH="/working/path/databases"
+   
+   
+   DUMPS_PATH="/working/path/databases"
+ 
+ 
    DELPH_PATH="/working/path/docker"
-   DEV_PATH="/working/path/develop"
+   
+   
+   DEV_PATH="/working/path/code"
  - edit /etc/hosts
    127.0.0.1  blog.localhost blog
    127.0.0.1  ladon.localhost ladon
