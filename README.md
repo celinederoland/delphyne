@@ -54,6 +54,7 @@ The admin has ssh access to production server (there is only one machine).
  - cd /working/path
  - git clone git@github.com:celinederoland/delphyne.git docker
  - cd docker
+ - mkdir config
 
 
  - cp delphyne/docker-compose.override.qexample.yml delphyne/docker-compose.override.yml
@@ -77,9 +78,11 @@ The admin has ssh access to production server (there is only one machine).
  The configuration files can be edited locally and then pushed on remote 
  following the steps below on local environment
 
+ - on local machine :
+ - cd /working/path/docker
  - mkdir config.prod
  - cp -r config.example/* config.prod
  - ... add confidential and custom datas for remote production environment in config files ...
- - cp docker-compose.override.example.yml docker-compose.override.prod.yml
+ - cp delphyne/docker-compose.override.example.yml delphyne/docker-compose.override.prod.yml
  - ... add confidential and custom datas for remote production environment in docker-compose.override.prod.yml
  - sh update-remote.sh user@remote-server /server/working/path/docker
