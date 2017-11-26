@@ -56,19 +56,19 @@ The admin has ssh access to production server (there is only one machine).
  - cd docker
 
 
- - cp docker-compose.override.example.yml docker-compose.override.yml
+ - cp delphyne/docker-compose.override.qexample.yml delphyne/docker-compose.override.yml
  - ... add confidential and custom datas for local development environment in docker-compose.override.yml
  - mkdir config.dev
  - cp -r config.example/* config.dev
  - ... add confidential and custom datas for local development environment in config files ...
  
- 
- - sh install-dragoon.sh (the repo is private, you need to replace it with your own repo)
+ - cd scripts
  - sh install-ladon.sh
  - sh install-demeter.sh
  - sh install-cychreides.sh
  - sh install-blog.sh (the repo is private, you need to replace it with your own repo)
- - sh update-delphyne
+ - sh update-delphyne.sh
+ - sh install-dragoon.sh (the repo is private, you need to replace it with your own repo)
  
 
 ### Remote usage
